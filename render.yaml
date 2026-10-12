@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: whatsapp-ai-backend
+    runtime: python
+    buildCommand: pip install -r requirements-backend.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: BUSINESS_NAME
+        value: JONNY PRODUCTIONS
+      - key: WHATSAPP_VERIFY_TOKEN
+        value: sigma_verify_123
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_ID
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
